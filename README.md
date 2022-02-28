@@ -3,7 +3,6 @@ Protection of project work
 
 Infrastructure:
 
-
   1. cos-7-srv1 -- 192.168.88.101
 	nginx :80	-- балансировщик нагрузки
 	httpd :8080
@@ -19,4 +18,3 @@ Infrastructure:
 	logging	   -- ELK stack
 
 --------------------------------------------
-
