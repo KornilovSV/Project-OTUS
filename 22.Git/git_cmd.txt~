@@ -1,6 +1,5 @@
-28.02.2022 v01
-
 ### Установливаем Git ###
+28.02.2022 v01
 
 yum install -y epel-release && yum install -y git
 
