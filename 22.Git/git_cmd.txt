@@ -9,14 +9,8 @@ mkdir ~/Git && cd ~/Git
 ### Как загрузить нужную ветку с GitHub на локальный хост ###
 git clone https://github.com/KornilovSV/Project-OTUS.git
 
--------------------------------------------------------------------------------
-; git checkout srv1
-; git pull [-u] origin srv1
-
-
-; git branch srv1	; greate branche "srv1"
-; git branch		; see branches
-; git checkout srv1 	; switching to branche "srv1"
+По SSH:
+git clone git@github.com:KornilovSV/Project-OTUS.git
 
 -------------------------------------------------------------------------------
 ### Заливаем новый файл ###
@@ -29,11 +23,15 @@ git status
 git push [-u] origin srv1 ; we fill the file into branch "srv1"
 
 -------------------------------------------------------------------------------
+; git checkout srv1
+; git pull [-u] origin srv1
 
+
+; git branch srv1	; greate branche "srv1"
+; git branch		; see branches
+; git checkout srv1	; switching to branche "srv1"
+
+-------------------------------------------------------------------------------
  git remote -v	; looking at the remote repositories
  origin	git@github.com:KornilovSV/otus_nginx.git (fetch)
  origin	git@github.com:KornilovSV/otus_nginx.git (push)
-
-
-
-
