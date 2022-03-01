@@ -13,7 +13,7 @@ Infrastructure:
         httpd :8081
         mysql replica
 
- 3. pve-cos-7-srv1 -- 10.10.10.100
+ 3. pve-cos-7-srv3 -- 10.10.10.100
         monitoring -- prometheus + grafana
         logging	   -- ELK stack
 
