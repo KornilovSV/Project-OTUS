@@ -8,9 +8,10 @@ CentOS 7
     ss -tulpn           # смотрим, какие сервисы запущены.
     ps fax | grep nginx # смотрим конкретный сервис, программу.
     ps fax | grep httpd
-    yum install epel-release # устанавливаем репу с пакетами nginx
-    yum install nginx        # устанавливаем nginx
-    yum install httpd        # устанавливаем apachtope CentOS
+
+# niginx_apache_inst.sh:
+    # yum install epel-release    # устанавливаем репу с пакетами nginx
+    yum install -y nginx httpd  # устанавливаем nginx_apache to CentOS
     systemctl start nginx
     systemctl status nginx
     systemctl is-enabled nginx # Проверяем, есть ли сервис в автозагрузке?
