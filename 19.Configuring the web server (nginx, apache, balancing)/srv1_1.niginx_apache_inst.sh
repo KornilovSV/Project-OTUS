@@ -18,10 +18,10 @@ systemctl stop nginx && \
 systemctl start httpd && \
 ss -tlnp | grep "*80"
 sleep 5
-clear
+clear && \
 curl localhost | head
 sleep 5
-clear
+clear && \
 systemctl enable httpd && systemctl is-enabled httpd && \
 sleep 5
 systemctl stop httpd && \
