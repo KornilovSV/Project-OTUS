@@ -9,11 +9,11 @@ Infrastructure:
         httpd :8082
         mysql source
 
- 2. cos-7-srv2 -- 192.168.88.102
+ 2. cos-7-srv2 -- 192.168.88.102 or Digital Ocean: srv2
         httpd :8081
         mysql replica
 
- 3. pve-cos-7-srv3 -- 10.10.10.100
+ 3. pve-cos-7-srv3 -- 10.10.10.100 ; On Proxmox 7.x host
         monitoring -- prometheus + grafana
         logging	   -- ELK stack
 
