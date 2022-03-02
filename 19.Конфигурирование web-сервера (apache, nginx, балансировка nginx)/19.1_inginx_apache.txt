@@ -1,0 +1,74 @@
+CentOS 7
+
+    Конфигурирование web-сервера (apache, nginx, балансировка nginx) 
+
+1.0 Теория
+
+2.1  Nginx
+    ss -tulpn           # смотрим, какие сервисы запущены.
+    ps fax | grep nginx # смотрим конкретный сервис, программу.
+    ps fax | grep httpd
+    yum install epel-release # устанавливаем репу с пакетами nginx
+    yum install nginx        # устанавливаем nginx
+    yum install httpd        # устанавливаем apachtope CentOS
+    systemctl start nginx
+    systemctl status nginx
+    systemctl is-enabled nginx # Проверяем, есть ли сервис в автозагрузке?
+    systemctl enable nginx   #добавляем сервис в автозагрузку (или disable)
+
+     
+Отключаемне нужные сервисы
+    getenforce               # смотрим режим SELinux
+    setenforce 0             # отключаем SELinux
+    iptables -L -vn          # Просмотр правил firewall
+    systemctl stop firewalld # отключаем firewall (на текущую сессию)
+    systemctl disable firewalld  
+    systemctl is-enabled firewalld
+
+    ps fax | grep nginx # смотрим, работает ли сервис?
+    curl localhost      # смотрим, отвечает ли nginx
+    lynx|Links  localhost
+    в браузере:
+    localhost  # можно нажать F12, Network (Disable cache) смотрим информацию. Кликаем по документав в левой части. Кликаем по записям в правой части.
+     
+2.2  Конфигурирование Nginx
+
+    См. 19.Конфигурирование web-сервера 2.2 Apache.mp4
+    Изменяем конфиг nginx
+    nginx -t    # Проверяем конфигурацию nginx
+    systemctl reload nginx  # Перезапускает nginx с новой конфигурацией
+    ps -fax | grep nginx    # Проверяем запущены ли процессы nginx
+    
+2.2 Конфигурирование Apache
+    См. 19.Конфигурирование web-сервера 2.2 Apache.mp4, 
+    
+ 2.2 Frond-end и back-end роли Reverse proxy
+    См. 19.Конфигурирование web-сервера 2.2 Apache.mp4, 
+
+==============================================================================
+2.3 Балансировка нагрузки на Web-сервер
+
+    см. - 19.Конфигурирование web-сервера 2.3 Apache.mp4
+
+ После изменения конфигурации в /etc/nginx/conf.d/*.conf
+ делаем следующее:
+    systemctl is-enabled nginx
+    nginx -t	  # Проверяем конфигурацию nginx
+    
+    systemctl is-enabled httpd
+    apachectl -t  # Проверяем конфигурацию apache
+    
+    systemctl reload httpd
+    systemctl reload nginx
+    
+    systemctl status httpd
+    systemctl status nginx
+
+    ps -fax | grep nginx
+    ps -fax | grep httpd
+    
+    ss -tlpn
+
+Проверяем в curl localhost или ip-address_nginx
+Проверяем в браузере
+
