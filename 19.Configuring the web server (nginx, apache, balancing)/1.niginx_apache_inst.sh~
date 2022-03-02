@@ -15,7 +15,6 @@ systemctl stop nginx
 
 systemctl start httpd && systemctl status httpd
 ps -fax | grep -A 3 httpd
-ss -tlnp | grep -A 2 "*:80"
 # curl localhost 80
 systemctl enable httpd && systemctl is-enabled httpd
 sleep 5
