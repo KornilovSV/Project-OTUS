@@ -24,6 +24,7 @@ curl localhost | head
 systemctl disable --now httpd && \
 
 echo "Autostart Nginx, Apache:"
-systemctl is-enabled nginx
+systemctl is-enabled nginx && \
+systemctl is-enabled httpd
 
 # END
