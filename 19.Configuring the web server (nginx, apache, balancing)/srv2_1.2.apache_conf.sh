@@ -7,8 +7,8 @@ cp srv2_1.4.0_httpd.conf /etc/httpd/conf/httpd.conf && \
 cp srv2_1.4.1_vh3.conf /etc/httpd/conf.d/vh3.conf && \
 cp index-vh3.html /var/www/html/index.html && \
 
-echo "Config files check:" && \
-clear && apachectl -t && sleep 10 && echo "Reload httpd"
+clear && echo "Config files check:" && \
+apachectl -t && sleep 10 && echo "Reload httpd" && \
 systemctl reload httpd && \
 clear  && \
 ss -tln
