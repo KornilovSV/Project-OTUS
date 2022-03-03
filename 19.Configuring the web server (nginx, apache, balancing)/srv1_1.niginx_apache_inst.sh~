@@ -3,7 +3,7 @@
 
 yum install -y epel-release nginx && \
 systemctl stop nginx && \
-yum install -y httpd && systemctl stop httpd && \
+yum install -y httpd && systemctl stop  httpd && \
 
 systemctl start nginx && \
 clear && \
