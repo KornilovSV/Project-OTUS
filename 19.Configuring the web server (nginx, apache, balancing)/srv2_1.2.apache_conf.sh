@@ -11,6 +11,6 @@ clear && echo "Config files check:" && \
 apachectl -t && sleep 10 && echo "Reload httpd" && \
 systemctl reload httpd && \
 clear  && \
-ss -tln
 sleep 10
+ss -tln
 

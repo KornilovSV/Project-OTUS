@@ -14,14 +14,13 @@ mkdir /var/www/html1 /var/www/html2 && \
 cp index-vh1.html /var/www/html1/index.html && \
 cp index-vh2.html /var/www/html2/index.html && \
 
-echo "Config files check:"
-clear && apachectl -t && \
+clear && echo "Config files check:" && \
+apachectl -t && \
 nginx -t && sleep 10 && \
 
 systemctl enable --now httpd && \
 systemctl start nginx && \
-
+sleep 10
 clear  && \
 ss -tln
-sleep 10
 
