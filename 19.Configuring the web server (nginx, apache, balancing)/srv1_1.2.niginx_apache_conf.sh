@@ -13,7 +13,9 @@ sleep 7
 # systemctl reload nginx && \
 
 # Copy httpd
+# /etc/httpd/conf/httpd.conf
 # clear  && \
 # apachectl -t && \
 # sleep 7
 # systemctl reload nginx && \
+# /var/www/html
