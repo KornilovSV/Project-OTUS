@@ -6,9 +6,11 @@ yum install -y epel-release httpd && \
 systemctl start httpd && \
 clear && \
 ss -tlnp | grep "*80"
-sleep 5
+sleep 7
 clear && \
 curl localhost | head
+sleep 7
+clear && \
 systemctl enable httpd && \
 
 echo "2-nd Autostart Apache:"
