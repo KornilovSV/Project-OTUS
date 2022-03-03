@@ -2,7 +2,6 @@
 # Install apache:
 
 yum install -y epel-release httpd && \
-
 systemctl start httpd && \
 clear && \
 ss -tlnp | grep "80"
