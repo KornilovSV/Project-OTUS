@@ -16,11 +16,12 @@ cp index-vh2.html /var/www/html2/index.html && \
 
 clear && echo "Config files check:" && \
 apachectl -t && \
-nginx -t && sleep 10 && \
+nginx -t && sleep 5 && \
 
 systemctl enable --now httpd && \
 systemctl start nginx && \
 sleep 10
 clear  && \
 ss -tln
+sleep 5
 
