@@ -19,6 +19,7 @@ sleep 7
 # A superuser account 'root'@'localhost is created.
 # A password for the superuser is set and stored in the error log file.
 # To reveal it, use the following command:
+echo "Default password: "
 # supwd=$(grep 'temporary password' /var/log/mysqld.log)
 grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
 # grep 'temporary password' /var/log/mysqld.log > MySQL_temp.pwd
@@ -28,8 +29,9 @@ grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
 # echo Change the root password by logging in with the generated,
 # echo temporary password and set a custom password for the superuser account:
 # echo mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '<MyNewPwd';
-sleep 15
+sleep 10
 
 #
 mysql_secure_installation && \
+echo "Enter password to login MySQL: "
 mysql -uroot -p
