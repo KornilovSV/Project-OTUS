@@ -1,0 +1,182 @@
+OTUS MySQL DZ
+
+; Установка MySQL 8 on Debian 11.2
+
+; 1. Скачиваем пакет репозитория:
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+
+
+; 2. Устанавливаем gnupg (необходим для mysql репы)
+sudo apt update && sudo apt install gnupg p7zip-full mc
+
+; 3. Устанавливаем mysql репозиторий и сервера Master и Slave:
+
+sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb && \
+sudo apt update && \
+sudo apt -y install mysql-server
+
+задаем Пароль: mysql-pwd
+(можно установить пароль root позже с помощью mysql_secure_installation)
+
+------------------------------
+; Проверяем доступность сервиса MySQL:
+ss -tln && systemctl status mysql && echo "IS-Enabled mysql.service?" && systemctl is-enabled mysql.service
+
+см. Screen-1.png
+------------------------------
+; 4. Запускаем скрипт обеспечения безопасности MySQL.
+mysql_secure_installation
+
+------------------------------
+5. Заходим на сервера MySQL с паролем
+$ mysql -uroot -p
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+quit
+
+------------------------------
+### НАСТРОЙКА РЕПЛИКАЦИИ ###
+
+#####################################################
+# На Мастере
+#####################################################
+
+# Создаём пользователя для реплики
+CREATE USER repl@'%' IDENTIFIED WITH 'caching_sha2_password' BY 'oTUSlave#2020'; 
+
+# Даём ему права на репликацию
+GRANT REPLICATION SLAVE ON *.* TO repl@'%';
+
+# Смотрим создался ли пользователь repl:
+SELECT User, Host FROM mysql.user;
+
+mysql> SELECT User, Host FROM mysql.user;
++------------------+-----------+
+| User             | Host      |
++------------------+-----------+
+| repl             | %         |
+| mysql.infoschema | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
++------------------+-----------+
+5 rows in set (0.00 sec)
+
+######################################################
+# На Слейве
+######################################################
+
+; Т.к. я не клонировал VM, а устанавливал отдельно ОС и MySQL, то 
+
+server-uuid для MySQL на Мастер и Слайве разные
+
+см. Screen-2.png
+
+------------------------------
+
+;в файле /etc/mysql/my.cnf для слейва указываем сервер-id, и
+запускаем его в режиме только для чтения.
+
+[mysqld]
+server-id=3
+
+;И перезагружаем Слейв 
+sudo systemctl restart mysql.service
+
+mysql> select @@server_id;
++-------------+
+| @@server_id |
++-------------+
+|           3 |
++-------------+
+1 row in set (0.00 sec)
+
+
+## On MASTER
+mysql> show master status;
++---------------+----------+--------------+------------------+-------------------+
+| File          | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++---------------+----------+--------------+------------------+-------------------+
+| binlog.000006 |      157 |              |                  |                   |
++---------------+----------+--------------+------------------+-------------------+
+
+
+## On SLAVE
+STOP SLAVE;
+CHANGE MASTER TO MASTER_HOST='192.168.88.201', MASTER_USER='repl', MASTER_PASSWORD='oTUSlave#2020', MASTER_LOG_FILE='binlog.000006', MASTER_LOG_POS=157, GET_MASTER_PUBLIC_KEY = 1;
+Query OK, 0 rows affected, 9 warnings (2.07 sec)
+
+; Проверяем Репликацию: 
+см. Screen-3.png
+
+------------------------------
+## On MASTER
+; Сoздаём базу otus и таблицу ksv_tbl:
+
+mysql> CREATE DATABASE otus;
+mysql> use otus
+
+mysql> create table ksv_tbl (id int);
+mysql> SHOW TABLES;
+
+# Добавляем строчки таблицу ksv_tbl
+mysql> insert into ksv_tbl values (2),(3),(4);
+
+; проверяем на MASTER:
+mysql> show databases;
+mysql> show tables;
+mysql> select * from ksv_tbl;
+
+------------------------------
+## On SLAVE
+mysql> STOP SLAVE;
+mysql> START SLAVE;
+mysql> show databases;
+mysql> use otus
+mysql> show tables;
+mysql> select * from ksv_tbl;
+
+; Проверяем Репликацию базы otus и таблицы: 
+см. Screen-4.png
+
+
+------------------------------
+### SCRIPT BACKUP ###
+
+Создал скрипт по предложеному варианту из вебинара
+mysql-back.sh
+
+ Не совсем понял, что хотел донести спикер. Скрип, на базе предложенного, получился
+какой то корявый. Но фунцию выполняет, бакапит каждую таблицу из базы в отдельный файл.   
+
+ Сделал скрипт по своему. Есть возможность интерактивного выбора базы, которую нужно бекапить, также каждую таблицу в отдельный файл.
+ При этом вначале запрашивает логин пользователя (чтобы не светился в скрипте). Пароль на экране не отображается. Затем запрашивается имя базы, таблицы которой будут бакапиться в директорию по имени базы.
+Скипты приложены.
+---
+
+./mysql-backup-tbl.sh
+
+Enter password for mysql(root): 
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| otus               |
+| performance_schema |
+| sys                |
++--------------------+
+Enter name of database: otus
+
+
