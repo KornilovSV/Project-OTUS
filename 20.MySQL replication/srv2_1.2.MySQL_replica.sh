@@ -18,9 +18,12 @@ mysql -e "select @@server_id;" && sleep 3 && \
 mysql -e "STOP SLAVE;" && \
 
 echo "Change: Master_IP, Binlog_number, POS_number: "
+echo " "
 echo "CHANGE MASTER TO MASTER_HOST='192.168.4.50', MASTER_USER='repl', MASTER_PASSWORD='oTUSlave#2020', MASTER_LOG_FILE='binlog.000XXX', MASTER_LOG_POS=XXX, GET_MASTER_PUBLIC_KEY = 1;"
+echo " "
 echo "And paste this line into: mysql > " && sleep 5 && \
-mysql -uroot && mysql -e "START SLAVE;" && mysql -e "show slave status\G"
+echo " "
+mysql -uroot && mysql -e "START SLAVE;" && echo "Show slave status:" && mysql -e "show slave status\G"
 
 # https://dev.mysql.com/doc/refman/8.0/en/replica-logs-relaylog.html
 # можем настроить наш relay.log
