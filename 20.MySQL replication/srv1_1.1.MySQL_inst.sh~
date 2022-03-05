@@ -1,7 +1,7 @@
 #!/bin/bash
 # Installing MySQL on Linux Using the MySQL Yum Repository
 
-cp .my.cnf ~/.my.cnf && chmod 0600 ~/.my.cnf && vi ~/.my.cnf && \
+cp .my.cnf ~/.my.cnf && chmod 0600 ~/.my.cnf && \
 mkdir ~/MysQL && cd ~/MysQL && \
 
 # Adding the MySQL Yum Repository For an EL7-based system:
@@ -21,11 +21,7 @@ sleep 7
 # A password for the superuser is set and stored in the error log file.
 # To reveal it, use the following command:
 echo "Default password: "
-# supwd=$(grep 'temporary password' /var/log/mysqld.log)
 grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
-# grep 'temporary password' /var/log/mysqld.log > MySQL_temp.pwd
-# defpwd=$(cat MySQL_temp.pwd | awk '{print $NF}')
-# echo $defpwd
 
 # echo Change the root password by logging in with the generated,
 # echo temporary password and set a custom password for the superuser account:
