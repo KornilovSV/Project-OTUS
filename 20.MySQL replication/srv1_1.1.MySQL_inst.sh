@@ -24,12 +24,13 @@ grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
 
 # echo Change the root password by logging in with the generated,
 # echo temporary password and set a custom password for the superuser account:
-# echo mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '<MyNewPwd';
+# echo mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPwd';
 sleep 10 && \
 
 #
 mysql_secure_installation && \
 echo "Enter password to login MySQL: "
 mysql -uroot -p
-# cp .my.cnf ~/.my.cnf && chmod 0600 ~/.my.cnf && \
+cp .my.cnf ~/.my.cnf && chmod 0600 ~/.my.cnf && nano ~/.my.cnf && \
+mysql -e "show databases;"
 
