@@ -17,8 +17,10 @@ mysql -e "select @@server_id;" && sleep 3 && \
 # необходимо получить публичный ключ
 mysql -e "STOP SLAVE;" && \
 
+echo "CHANGE to: Master_IP, Binlog_number, POS_number: "
+echo "CHANGE MASTER TO MASTER_HOST='192.168.4.50', MASTER_USER='repl', MASTER_PASSWORD='oTUSlave#2020', MASTER_LOG_FILE='binlog.000XXX', MASTER_LOG_POS=XXX, GET_MASTER_PUBLIC_KEY = 1;"
+nano ./srv2_1.3.MySQL_change_src
 
-CHANGE MASTER TO MASTER_HOST='192.168.0.10', MASTER_USER='repl', MASTER_PASSWORD='oTUSlave#2020', MASTER_LOG_FILE='binlog.000005', MASTER_LOG_POS=688, GET_MASTER_PUBLIC_KEY = 1;
 START SLAVE;
 show slave status\G
 

@@ -18,10 +18,8 @@ mysql -e "select @@server_id;" && sleep 3 && \
 mysql -e "STOP SLAVE;" && \
 
 # CHANGE MASTER TO MASTER_HOST='192.168.4.50', MASTER_USER='repl', MASTER_PASSWORD='oTUSlave#2020', MASTER_LOG_FILE='binlog.000XXX', MASTER_LOG_POS=XXX, GET_MASTER_PUBLIC_KEY = 1;
-
-
-START SLAVE;
-show slave status\G
+nano ./srv2_1.3.MySQL_change_src && \
+mysql -e "START SLAVE;" && mysql -e "show slave status\G"
 
 # https://dev.mysql.com/doc/refman/8.0/en/replica-logs-relaylog.html
 # можем настроить наш relay.log
