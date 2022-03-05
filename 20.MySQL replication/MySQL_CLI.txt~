@@ -1,3 +1,0 @@
-#
-mysql -e "SHOW DATABASES"
-mysql -e "USE mysql; SHOW tables;"
