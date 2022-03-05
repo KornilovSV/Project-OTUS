@@ -23,7 +23,10 @@ echo "CHANGE MASTER TO MASTER_HOST='192.168.4.50', MASTER_USER='repl', MASTER_PA
 echo " "
 echo "And paste this line into: mysql > " && sleep 5 && \
 echo " "
-mysql -uroot && mysql -e "START SLAVE;" && echo "Show slave status:" && mysql -e "show slave status\G"
+mysql -uroot && \
+mysql -e "START SLAVE;" && \
+sleep 3 && \
+echo "Show slave status:" && mysql -e "show slave status\G"
 
 # https://dev.mysql.com/doc/refman/8.0/en/replica-logs-relaylog.html
 # можем настроить наш relay.log
