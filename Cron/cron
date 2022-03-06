@@ -1,0 +1,2 @@
+# minute(s) hour(s) day(s) month(s) weekday(s) command(s)
+*/10    *       *       *       *	/home/BackUp/mysql-backup.sh

@@ -1,6 +1,11 @@
+#!/bin/bash
+# Crontab
 
-cp cron /var/spool/cron/root
+mkdir /home/BackUp/ && \
+cp mysql-backup.sh /home/BackUp/ && \
+cp cron /var/spool/cron/root && \
 
-sudo systemctl status crond.service -l
-sudo crontab -l
-
+systemctl status crond.service -l
+echo " "
+crontab -l
+#
