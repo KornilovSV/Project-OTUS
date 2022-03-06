@@ -32,3 +32,7 @@ select * from ksv_tbl;
 show slave status\G
 ------------------------------
 
+mysql -e "use mysql; show tables;"
+
+
+
