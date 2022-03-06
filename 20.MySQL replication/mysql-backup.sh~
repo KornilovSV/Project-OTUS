@@ -14,11 +14,12 @@ do
    mkdir $d
    /usr/bin/mysqldump -uroot --add-drop-table --add-locks --create-options --disable-keys --extended-insert --single-transaction --quick --set-charset --events --routines --triggers $d | gzip -1 > ./$d/$d.gz;
 
-   for t in $(mysql -uroot $d -e "show tables;"|grep -v Tables_in_);
+   for t in $(mysql -uroot -p$PWD1 $d -e "show tables;"|grep -v Tables_in_);
      do
-     /usr/bin/mysqldump -uroot --add-locks --quick --create-options --extended-insert --single-transaction --set-charset --master-data=2 $d $t 2> /dev/null | gzip > ./$d/$t".gz";
+     /usr/bin/mysqldump -uroot -p$PWD1 --add-locks --quick --create-options --extended-insert --single-transaction --set-charset --master-data=2 $d $t 2> /dev/null | gzip > ./$d/$t".gz";
      done
 done
+
 
 # Start Slave:
 mysql -e "start slave;" && \

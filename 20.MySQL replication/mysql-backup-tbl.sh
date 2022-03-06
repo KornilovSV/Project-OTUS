@@ -1,8 +1,6 @@
 #!/bin/bash
 # MySQL 8.0 Backup script
-
-# echo "Enter password for mysql(root): "
-# read -s PWD1
+# With a choice of databases
 
 mysql -uroot -e 'SHOW DATABASES';
 
