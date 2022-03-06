@@ -1,10 +1,10 @@
-28.02.2022 v01
+06.03.2022 v02
 
 ### Установливаем Git ###
 
 yum install -y epel-release && yum install -y git
 
-; Создаем Папку Git для пользователя и клонируем репозиторий.
+; Создаем папку Git и клонируем репозиторий.
 !!! All-In-One:
 yum install -y epel-release git && mkdir ~/Git && cd ~/Git && git clone https://github.com/KornilovSV/Project-OTUS.git
 -------------------------------------------------------------------------------
