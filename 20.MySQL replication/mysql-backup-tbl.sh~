@@ -28,7 +28,7 @@ for i in $(mysql -uroot $DB -e "show tables;"|grep -v Tables_in_);
     /usr/bin/mysqldump -uroot --add-locks --quick --create-options --extended-insert --single-transaction --set-charset --master-data=2 $DB $i 2> /dev/null | gzip > ./$DB/$i".gz";
     done
 
-# Start Slave:
-mysql -e "start slave;" && \
-echo "Slave status: "
-mysql -e "show slave status\G" | grep Running
+# Stop Slave:                                                                                                                                                                               
+21 mysql -e "stop slave;" && \                                                                                                                                                                 
+22 echo "Slave status: "                                                                                                                                                                       
+23 mysql -e "show slave status\G" | grep Running
