@@ -27,6 +27,6 @@ done
 mysql -e "start slave;" && \
 echo "Slave status: "
 mysql -e "show slave status\G" | grep Running
-cd ..
+sleep 5 && cd ..
 
 # END
