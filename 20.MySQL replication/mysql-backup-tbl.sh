@@ -2,7 +2,7 @@
 # MySQL 8.0 Backup script
 # With a choice of databases
 
-mysql -uroot -e 'SHOW DATABASES';
+mysqlshow
 
 echo -n "Enter name of database: "
 read DB
