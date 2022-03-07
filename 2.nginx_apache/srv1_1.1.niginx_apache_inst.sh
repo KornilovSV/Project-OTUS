@@ -19,9 +19,9 @@ systemctl start httpd && \
 clear && \
 ss -tlnp | grep "httpd"
 sleep 7
-clear && \
-curl localhost:8081 | head
-sleep 7
+#clear && \
+#curl localhost:8081 | head
+#sleep 7
 systemctl disable --now httpd && \
 clear && \
 
