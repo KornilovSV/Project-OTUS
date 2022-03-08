@@ -1,6 +1,7 @@
 #!/bin/bash
 ### Install Grafana ###
 
+cd ~/prometheus
 echo -n "Enter current version of Grafana: "
 read ver
 
@@ -10,7 +11,7 @@ systemctl daemon-reload && \
 systemctl start grafana-server && systemctl status grafana-server
 
 sleep 3 && clear
-curl http://localhost:9090 | head
+curl http://localhost:3000 | head
 echo " "
 ss -tln
 
