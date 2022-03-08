@@ -1,0 +1,26 @@
+#!/bin/bash
+### Install Grafana ###
+
+# Заходим на сайт:
+https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1
+# Копируем нужную нам ссылку (Редакция должна быть OSS) в скрипт и загружаем на хост:
+
+Заходим на Grafana:
+http://192.168.88.103:3000/login
+new password: otus-2022
+
+Настраиваем Grafana на Prometheus:
+* Configuration > Data Sources > Add data source > Prometheus
+HTTP URL: http://localhost:9090
+
+Загружаем Dashboard:
+https://grafana.com/grafana/dashboards
+
++ > Greate > Import
+Import via grafana.com:
+1860 / 11074
+
+# Или создаем свой (нужно знать синтаксис):
+# + > Greate > dashboard
+
+================================================================================

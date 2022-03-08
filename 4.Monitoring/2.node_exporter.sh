@@ -30,7 +30,10 @@ curl localhost:9100
 
 # Добавляем в автозагрузку
 systemctl enable node_exporter.service && sleep 3 &&\
+clear && echo "Autostart node_exporter:"
 systemctl is-enabled node_exporter.service
+echo " "
+ss -tln
 
 #END
 

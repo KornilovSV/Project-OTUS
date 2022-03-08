@@ -9,7 +9,7 @@ pkg=$(ls grafana*) && yum install -y $pkg
 systemctl daemon-reload && \
 systemctl start grafana-server && systemctl status grafana-server
 
-sleep 3 && clear
+clear
 curl http://localhost:9090 | head
 echo " "
 ss -tln
