@@ -1,5 +1,5 @@
 #!/bin/bash
-### Prometheus ###
+### Install Prometheus ###
 
 # Заходим на сайт (в браузере)
 # Находим последнюю версию:
@@ -28,11 +28,12 @@ echo "В другой консоли в браузере подключаемс�
 --web.console.libraries=/etc/prometheus/console_libraries
 #; Ctrl+C
 
--------------------------
+## -------------------------
 # Создаем юнит в systemd
 cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.service /etc/systemd/system/prometheus.service && \
 
----
+cat ~/Git/Project-OTUS/4.Monitoring/prometheus.yml >> /etc/prometheus/prometheus.yml
+
 # Запускаем prometheus:
 systemctl daemon-reload && sleep 5 && \
 systemctl start prometheus.service && \

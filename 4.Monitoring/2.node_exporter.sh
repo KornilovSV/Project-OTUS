@@ -1,20 +1,13 @@
 #!/bin/bash
 ### Install node_exporter ###
 
-echo -n "Enter current version of Prometheus :"
+echo -n "Enter current version of Prometheus: "
 read ver
 
 cd ~/prometheus
 curl -LO https://github.com/prometheus/node_exporter/releases/download/v$ver/node_exporter-$ver.linux-amd64.tar.gz && \
 pkg=$(ls | grep tar.gz) && tar -xvf $pkg && \
 useradd --no-create-home --shell /usr/sbin/nologin node_exporter && \
-
-# Редактируем файл кофигурации:
-nano ~/Project-OTUS/4.Monitoring/prometheus.yml
-nano /etc/prometheus/prometheus.yml && \
-
-#---
-systemctl restart prometheus.service && systemctl status prometheus.service & \
 
 # Копируем сам node_exporter:
 cp -vi ./node_exporter-$ver.linux-amd64/node_exporter /usr/local/bin/ && \
@@ -36,7 +29,8 @@ clear && sleep 5
 curl localhost:9100
 
 # Добавляем в автозагрузку
-systemctl enable node_exporter.service
+systemctl enable node_exporter.service && sleep 3 &&\
+systemctl is-enabled node_exporter.service
 
 #END
 
