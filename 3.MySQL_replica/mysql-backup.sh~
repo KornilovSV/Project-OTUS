@@ -1,8 +1,6 @@
 #!/bin/bash
 # MySQL 8.0 Backup script
 
-cd ~/MySQL
-
 dtime=$(date "+%F_%R")
 mkdir $dtime && cd $dtime
 

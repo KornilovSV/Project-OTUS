@@ -5,7 +5,7 @@
 # Находим последнюю версию:
 # Ctrl+F linux-amd64.tar.gz
 # копируем ссылку в скрипт и загружаем на хост:
-echo -n "Enter current version of Prometheus :"
+echo -n "Enter current version of Prometheus: "
 read ver
 
 mkdir ~/prometheus && cd ~/prometheus && \

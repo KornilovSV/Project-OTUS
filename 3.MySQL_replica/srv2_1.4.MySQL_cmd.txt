@@ -4,8 +4,9 @@ CHANGE MASTER TO MASTER_HOST='192.168.4.50', MASTER_USER='repl', MASTER_PASSWORD
 Master:
 mysql -e "show master status;"
 Slave:
-mysql > show slave status\G
-mysql -e "START SLAVE;"
+quit
+;mysql > show slave status\G
+;mysql -e "START SLAVE;"
 
 --- Greate DataBase: ---------
 Master:
@@ -32,6 +33,7 @@ use staff
 insert into ksv_tbl values (10),(11),(12);
 insert into vasyan_tbl values (20),(21),(22);
 select * from ksv_tbl;
+select * from vasyan_tbl;
 show master status;
 
 Slave:
@@ -41,7 +43,8 @@ mysql -e "show slave status\G"
 
 ------------------------------
 
-mysql -e "use mysql; show tables;"
+BackUp scripts
+
 
 
 

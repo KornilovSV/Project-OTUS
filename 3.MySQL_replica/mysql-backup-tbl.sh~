@@ -2,8 +2,6 @@
 # MySQL 8.0 Backup script
 # With a choice of databases
 
-cd ~/MySQL
-
 dtime=$(date "+%F_%R")
 mkdir -p ~/MySQL/$dtime
 

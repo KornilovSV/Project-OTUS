@@ -1,7 +1,7 @@
 #!/bin/bash
 ### Install node_exporter ###
 
-echo -n "Enter current version of Prometheus: "
+echo -n "Enter current version of Node_exporter: "
 read ver
 
 cd ~/prometheus
