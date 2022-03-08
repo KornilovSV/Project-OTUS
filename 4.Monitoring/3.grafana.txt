@@ -7,6 +7,7 @@ https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1
 
 Заходим на Grafana:
 http://192.168.88.103:3000/login
+L/P: grafana
 new password: otus-2022
 
 Настраиваем Grafana на Prometheus:
@@ -15,6 +16,7 @@ HTTP URL: http://localhost:9090
 
 Загружаем Dashboard:
 https://grafana.com/grafana/dashboards
+Node Exporter Fullb: 1860
 
 + > Greate > Import
 Import via grafana.com:

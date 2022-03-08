@@ -31,8 +31,7 @@ echo "В другой консоли в браузере подключаемс�
 ## -------------------------
 # Создаем юнит в systemd
 cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.service /etc/systemd/system/prometheus.service && \
-
-cat ~/Git/Project-OTUS/4.Monitoring/prometheus.yml >> /etc/prometheus/prometheus.yml
+cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.yml /etc/prometheus/prometheus.yml
 
 # Запускаем prometheus:
 systemctl daemon-reload && sleep 5 && \

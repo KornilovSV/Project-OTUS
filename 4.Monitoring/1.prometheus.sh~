@@ -42,7 +42,10 @@ sleep 5
 
 # Добавляем в автозагрузку
 systemctl enable prometheus.service && \
+clear && echo "Autostart prometheus:"
 systemctl is-enabled prometheus.service
+echo " "
+ss -tln
 sleep 5
 
 # Удаляем установочный пакет
