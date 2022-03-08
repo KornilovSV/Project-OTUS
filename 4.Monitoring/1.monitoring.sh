@@ -1,19 +1,15 @@
-# Проверяем firewall, если запушен, то отключаем 
-# systemctl is-enabled firewalld 
-# iptables -L
-# getenforce
-
----
+#!/bin/bash
 ### Prometheus ###
 
 # Заходим на сайт (в браузере)
-https://github.com/prometheus/prometheus/releases/
+# https://github.com/prometheus/prometheus/releases/
 
 # Находим последнюю версию:
 # Ctrl+F linux-amd64.tar.gz
 # копируем ссылку в скрипт и загружаем на хост:
-# 1.prometheus_get.sh
 
+
+# 1.prometheus_get
 mkdir ~/prometheus && cd ~/prometheus && \
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.33.4/prometheus-2.33.4.linux-amd64.tar.gz && \
 pkg=$(ls | grep tar.gz) && tar -xvf $pkg && \
@@ -31,13 +27,15 @@ chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus/ /var/lib
 
 # В другой консоли смотрим открытый порт 9090:
 ss -tlnp
-
+sleep 5
 # В браузере подключаемся к prometheus:
-http://192.168.88.102:9090
+clear && sleep 5
+curl http://192.168.4.42:9090 | head
+sleep 5
 
 -------------------------
 # Создаем юнит в systemd
-cat > /etc/systemd/system/prometheus.service
+cp -iv prometheus.service > /etc/systemd/system/prometheus.service
 [Unit]
 Description=Prometheus Monitoring
 Wants=network-online.target
