@@ -1,6 +1,8 @@
 #!/bin/bash
-# Block 1. Checking the rights to change the SELinux mode.
+### SELinux Control ###
+# Developed by KornilovSV
 
+# Block 1. Checking the rights to change the SELinux mode.
 clear
 USER=$(whoami)
 WUSER=$(grep wheel /etc/group | grep -o `whoami`)

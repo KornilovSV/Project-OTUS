@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #firefox --private-window
 
 https://github.com/prometheus/prometheus/releases/
