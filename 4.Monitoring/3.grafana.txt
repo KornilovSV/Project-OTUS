@@ -6,9 +6,9 @@ https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1
 # Копируем нужную нам ссылку (Редакция должна быть OSS) в скрипт и загружаем на хост:
 
 Заходим на Grafana:
-http://192.168.88.103:3000/login
+http://10.10.10.100:3000/login
 L/P: grafana
-new password: otus-2022
+new password: grafana otus-2021
 
 Настраиваем Grafana на Prometheus:
 * Configuration > Data Sources > Add data source > Prometheus
@@ -16,11 +16,14 @@ HTTP URL: http://localhost:9090
 
 Загружаем Dashboard:
 https://grafana.com/grafana/dashboards
+	
+Grafana
+https://grafana.com/grafana/dashboards/1860
 Node Exporter Fullb: 1860
 
 + > Greate > Import
 Import via grafana.com:
-1860 / 11074
+1860 / 11074 / 10795
 
 # Или создаем свой (нужно знать синтаксис):
 # + > Greate > dashboard
