@@ -1,6 +1,13 @@
 #!/bin/bash
 # Crontab
 
+if [[ -d ~/Git ]];
+ then
+  echo "Directory present" && sleep 5
+ else
+  mkdir ~/Git
+fi
+
 mkdir /home/BackUp/ && \
 cp mysql-backup.sh /home/BackUp/ && \
 cp git-pull.sh ~/Git/git-pull.sh && \
