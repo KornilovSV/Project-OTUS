@@ -31,7 +31,7 @@ echo "http://host-IP:9090"
 ## -------------------------
 # Создаем юнит в systemd
 cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.service /etc/systemd/system/prometheus.service && \
-cp -v /etc/prometheus/prometheus.yml /etc/prometheus/prometheus.yml.back && \
+mv -fv /etc/prometheus/prometheus.yml /etc/prometheus/prometheus.yml.back && \
 cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.yml /etc/prometheus/prometheus.yml && \
 
 # Запускаем prometheus:

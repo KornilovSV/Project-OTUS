@@ -27,6 +27,7 @@ sleep 5
 
 # Проверяем:
 curl localhost:9100
+sleep 3
 
 # Добавляем в автозагрузку
 systemctl enable node_exporter.service && sleep 3 &&\
@@ -36,4 +37,3 @@ echo " "
 ss -tln
 
 #END
-

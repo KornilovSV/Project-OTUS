@@ -48,4 +48,8 @@ echo " "
 ss -tln
 sleep 5
 
+# Удаляем установочный пакет
+cd ~/prometheus
+rm -fv $pkg
+
 # END

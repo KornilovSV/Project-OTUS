@@ -36,4 +36,8 @@ systemctl is-enabled node_exporter.service
 echo " "
 ss -tln
 
+# Удаляем установочный пакет
+cd ~/prometheus
+rm $pkg
+
 #END
