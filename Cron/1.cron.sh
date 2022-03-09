@@ -9,9 +9,9 @@ if [[ -d ~/Git ]];
 fi
 
 mkdir /home/BackUp/ && \
-cp mysql-backup.sh /home/BackUp/ && \
-cp git-pull.sh ~/Git/git-pull.sh && \
-cp cron /var/spool/cron/root && \
+cp -iv mysql-backup.sh /home/BackUp/ && \
+cp -iv git-pull.sh ~/Git/git-pull.sh && \
+cp -iv cron /var/spool/cron/root && \
 crontab -e
 
 clear
