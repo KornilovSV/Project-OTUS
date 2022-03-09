@@ -26,6 +26,7 @@ git status
 git push [-u] origin srv1 ; we fill the file into branch "srv1"
 
 -------------------------------------------------------------------------------
+# Branches
 ; git checkout srv1
 ; git pull [-u] origin srv1
 
