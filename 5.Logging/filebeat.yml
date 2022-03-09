@@ -1,0 +1,21 @@
+=== Filebeat inputs ===
+# Добавить в конец блока
+> filebeat.inputs:
+- type: log
+  paths:
+    - /var/log/nginx/*.log
+  exclude_files: ['\.gz$']
+
+--- Elasticsearch Output ---
+# Закомментировать 
+#output.elasticsearch:
+  # hosts: ["localhost:9200"]
+
+--- Logstash Output ---
+# Раскоментировать и изменить порт на 5400
+output.logstash:
+  hosts: ["localhost:5400"]
+
+
+systemctl enable --now filebeat 
+&& systemctl restart filebeat
