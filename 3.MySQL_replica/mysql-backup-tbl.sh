@@ -1,6 +1,7 @@
 #!/bin/bash
 # MySQL 8.0 Backup script
 # With a choice of databases
+# Developed by KornilovSV
 
 cd ~/MySQL
 
