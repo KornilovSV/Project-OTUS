@@ -1,4 +1,7 @@
 #!/bin/bash
 
-firefox --private-window https://github.com/prometheus/prometheus/releases/ && \
-firefox --private-window https://github.com/prometheus/node_exporter/releases/
+#firefox --private-window
+
+https://github.com/prometheus/prometheus/releases/
+https://github.com/prometheus/node_exporter/releases/
+https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1/
