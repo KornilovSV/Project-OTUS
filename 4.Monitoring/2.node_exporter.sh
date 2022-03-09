@@ -1,5 +1,6 @@
 #!/bin/bash
 ### Install node_exporter ###
+# Developed by KornilovSV
 
 echo -n "Enter current version of Node_exporter: "
 read ver

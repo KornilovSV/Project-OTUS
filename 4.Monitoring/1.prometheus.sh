@@ -1,5 +1,6 @@
 #!/bin/bash
 ### Install Prometheus ###
+# Developed by KornilovSV
 
 # Заходим на сайт (в браузере)
 # Находим последнюю версию:
@@ -51,5 +52,6 @@ sleep 5
 # Удаляем установочный пакет
 cd ~/prometheus
 rm -fv $pkg
+cat /etc/prometheus/prometheus.yml | grep -A7 node_exporter
 
 # END

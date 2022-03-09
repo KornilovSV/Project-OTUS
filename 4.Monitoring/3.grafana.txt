@@ -1,16 +1,19 @@
 #!/bin/bash
 ### Install Grafana ###
 
-# Заходим на сайт:
+# Заходим на сайт
+# И копируем нужную нам ссылку (Редакция должна быть OSS) 
+# 
 https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1
-# Копируем нужную нам ссылку (Редакция должна быть OSS) в скрипт и загружаем на хост:
 
-Заходим на Grafana:
+### Настройка Grafana ##
+
+# Заходим на Grafana:
 http://192.168.88.103:3000/login
-L/P: grafana
-new password: otus-2022
+Default Login/Pwd: admin
+new password: Grafana
 
-Настраиваем Grafana на Prometheus:
+Настраиваем Grafana на использование Prometheus:
 * Configuration > Data Sources > Add data source > Prometheus
 HTTP URL: http://localhost:9090
 
