@@ -1,5 +1,5 @@
 # Project-OTUS
-# 07.03.2022 v.2
+# 09.03.2022 v.5
 
 Protection of project work
 
@@ -27,5 +27,5 @@ Inet -- [Mikrotik] ------------------- [Cisco 861-K9] ---------------
                     |          :                             |          
             vm: cos7-srv1      :                          PVE 7.x
                            cos7-srv2                    -----------
-                        		                              vm: cos7-srv3
+                                                       vm: cos7-srv3
 
