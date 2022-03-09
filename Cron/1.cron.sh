@@ -3,7 +3,7 @@
 
 if [[ -d ~/Git ]];
  then
-  echo "Directory ~/Git present" && sleep 5
+  clear && echo "Directory ~/Git present" && sleep 5
  else
   mkdir ~/Git
 fi
@@ -18,5 +18,5 @@ clear
 systemctl status crond.service -l | grep -A2 "e - Command"
 echo " "
 crontab -l
-echo " "
+sleep 5
 #
