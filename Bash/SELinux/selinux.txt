@@ -1,0 +1,20 @@
+Блок 1.
+Проверяет наличия прав пользователя на предмет возможности изменения SELinux политики.
+По результату проверки выдает следующие сообщения:
+	- "You under ROOT"
+	- "You can execute a commands as the superuser."
+	- "!!! YOU DON'T HAVE ENOUGH RIGHTS"
+
+Блок 2.
+ Показывает текущее состояние SELinux политики
+
+	-------------------------
+	SELinux status:                 enabled
+	Current mode:                   permissive
+	Mode from config file:          enforcing
+	-------------------------
+
+Так же делает бекап оригинального файла /etc/selinux/config, на всякий случай.
+
+Блок 3. 
+Содержит Меню выбора действий и комманд изменения политики SELinux.
