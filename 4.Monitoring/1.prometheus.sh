@@ -20,7 +20,7 @@ chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus/ /var/lib
 
 ## ---
 echo "В другой консоли в браузере подключаемся к prometheus: "
-# curl http://host-IP:9090
+echo "http://host-IP:9090"
 
 ## Запускаем prometheus в ручную:
 ## sudo -u prometheus /usr/local/bin/prometheus --config.file /etc/prometheus/prometheus.yml \
@@ -31,7 +31,8 @@ echo "В другой консоли в браузере подключаемс�
 ## -------------------------
 # Создаем юнит в systemd
 cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.service /etc/systemd/system/prometheus.service && \
-cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.yml /etc/prometheus/prometheus.yml
+cp -v /etc/prometheus/prometheus.yml /etc/prometheus/prometheus.yml.back && \
+cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.yml /etc/prometheus/prometheus.yml && \
 
 # Запускаем prometheus:
 systemctl daemon-reload && sleep 5 && \
@@ -47,9 +48,4 @@ echo " "
 ss -tln
 sleep 5
 
-# Удаляем установочный пакет
-cd ~/prometheus
-rm $pkg
-
 # END
-
