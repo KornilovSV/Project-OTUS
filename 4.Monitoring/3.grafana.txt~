@@ -23,10 +23,11 @@ Node Exporter Fullb: 1860
 
 + > Greate > Import
 Import via grafana.com:
+1860 / 11074
 https://grafana.com/grafana/dashboards/1860
 https://grafana.com/grafana/dashboards/11074
 
 # Или создаем свой (нужно знать синтаксис):
 # + > Greate > dashboard
 
-#END
+================================================================================
