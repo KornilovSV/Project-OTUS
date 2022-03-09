@@ -8,7 +8,13 @@ if [[ -d ~/Git ]];
   mkdir ~/Git
 fi
 
-mkdir /home/BackUp/ && \
+if [[ -d /home/BackUp ]];
+ then
+  clear && echo "Directory "/home/BackU" present" && sleep 5
+ else
+  mkdir /home/BackUp
+fi
+
 cp -iv mysql-backup.sh /home/BackUp/ && \
 cp -iv git-pull.sh ~/Git/git-pull.sh && \
 cp -iv cron /var/spool/cron/root && \
