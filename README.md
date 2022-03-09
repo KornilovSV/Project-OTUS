@@ -11,7 +11,7 @@ Infrastructure:
         httpd :8082
         mysql source
 
- 2. cos-7-srv2 -- 192.168.88.102 or Digital Ocean: srv2
+ 2. cos-7-srv2 -- 192.168.88.102
         httpd :8083
         mysql replica
 
@@ -27,5 +27,5 @@ Inet -- [Mikrotik] ------------------- [Cisco 861-K9] ---------------
                     |          :                             |          
             vm: cos7-srv1      :                          PVE 7.x
                            cos7-srv2                    -----------
-                        or on Dital Ocean               vm: cos7-srv3
+                        		                              vm: cos7-srv3
 

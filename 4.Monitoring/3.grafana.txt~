@@ -1,32 +1,31 @@
 #!/bin/bash
 ### Install Grafana ###
 
-# Заходим на сайт:
+# Заходим на сайт
+# И копируем нужную нам ссылку (Редакция должна быть OSS) 
+# 
 https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1
-# Копируем нужную нам ссылку (Редакция должна быть OSS) в скрипт и загружаем на хост:
-# 1.grafana.sh
 
-curl -LO https://dl.grafana.com/oss/release/grafana-8.4.2-1.x86_64.rpm && \
-pkg=$(ls grafana*) && yum install -y $pkg
-systemctl daemon-reload && \
-systemctl start grafana-server && systemctl status grafana-server
+### Настройка Grafana ##
 
-ss -tlnp
+# Заходим на Grafana:
+http://192.168.88.103:3000/login
+Default Login/Pwd: admin
+new password: Grafana
 
-Заходим на Grafana:
-http://192.168.88.102:3000/login
-new password: otus-2022
-
-Настраиваем Grafana на Prometheus:
+Настраиваем Grafana на использование Prometheus:
 * Configuration > Data Sources > Add data source > Prometheus
 HTTP URL: http://localhost:9090
 
 Загружаем Dashboard:
 https://grafana.com/grafana/dashboards
+Node Exporter Fullb: 1860
 
 + > Greate > Import
 Import via grafana.com:
 1860 / 11074
+https://grafana.com/grafana/dashboards/1860
+https://grafana.com/grafana/dashboards/11074
 
 # Или создаем свой (нужно знать синтаксис):
 # + > Greate > dashboard

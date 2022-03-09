@@ -1,5 +1,6 @@
 #!/bin/bash
 # MySQL 8.0 Backup script
+# Developed by KornilovSV
 
 dtime=$(date "+%F_%R")
 cd /home/BackUp/ && \

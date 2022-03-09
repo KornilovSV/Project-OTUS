@@ -1,8 +1,0 @@
-#
-msqlshow
-mysql -e "SHOW DATABASES"
-mysql -e "USE mysql; SHOW tables;"
-
-# Данные о пользователе 'root'
-mysql -e "USE mysql; SELECT * FROM user WHERE User='root'\G"
-

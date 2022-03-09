@@ -1,4 +1,5 @@
 #!/bin/bash
+# Developed by KornilovSV
 
 # Copy httpd conf files:
 mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf_orig && \
@@ -10,9 +11,7 @@ cp index-vh3.html /var/www/html/index.html && \
 clear && echo "Config files check:" && \
 apachectl -t && sleep 5 && echo "Reload httpd" && \
 systemctl reload httpd && \
-clear  && \
-sleep 10
-ss -tln
+clear  && sleep 10 && ss -tln && \
 echo ""
 echo -n "Inet ExtIP: " && wget -qO- eth0.me && \
 echo ""

@@ -1,5 +1,6 @@
 #!/bin/bash
 ### Install node_exporter ###
+# Developed by KornilovSV
 
 echo -n "Enter current version of Node_exporter: "
 read ver
@@ -17,16 +18,17 @@ sleep 5
 
 # Создаем юнит:
 cp -iv ~/Git/Project-OTUS/4.Monitoring/node_exporter.service \
-/etc/systemd/system/node_exporter.service
+/etc/systemd/system/node_exporter.service && \
 
 # Стартуем node_exporter:
 systemctl daemon-reload && \
-systemctl start node_exporter.service && \
+systemctl start node_exporter.service && sleep 5 && \
 systemctl status node_exporter.service && \
-clear && sleep 5
+sleep 5
 
 # Проверяем:
 curl localhost:9100
+sleep 3
 
 # Добавляем в автозагрузку
 systemctl enable node_exporter.service && sleep 3 &&\
@@ -35,5 +37,8 @@ systemctl is-enabled node_exporter.service
 echo " "
 ss -tln
 
-#END
+# Удаляем установочный пакет
+cd ~/prometheus
+rm $pkg
 
+#END
