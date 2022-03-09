@@ -10,7 +10,7 @@ fi
 
 if [[ -d /home/BackUp ]];
  then
-  clear && echo "Directory "/home/BackU" present" && sleep 5
+  clear && echo "Directory "/home/BackUP" present" && sleep 5
  else
   mkdir /home/BackUp
 fi
