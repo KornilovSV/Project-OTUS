@@ -20,7 +20,8 @@ Infrastructure:
         logging	   -- ELK stack
 
 --------------------------------------------
-Network schem
+Diagram of my home network: 
+
                      192.168.88.0/24                   10.10.10.0/24
 Inet -- [Mikrotik] ------------------- [Cisco 861-K9] ---------------
                           |                                  |
