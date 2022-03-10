@@ -1,5 +1,7 @@
 IN PROGRESS
 
+Скрипты готовы делаю описание
+
 ### МОНИТОРИНГ ###
 
 Prometheus + grafana / node_exporter
