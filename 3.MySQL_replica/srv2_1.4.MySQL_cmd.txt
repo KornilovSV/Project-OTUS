@@ -21,9 +21,8 @@ show master status;
 Slave:
 # mysql -e "START SLAVE;"
 mysqlshow
-mysql -e "show slave status\G"
-mysqlshow
 mysql -e "use staff; show tables;"
+mysql -e "show slave status\G"
 
 --- Greate Values ----------------
 
