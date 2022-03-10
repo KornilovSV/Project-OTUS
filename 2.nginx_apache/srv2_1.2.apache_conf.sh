@@ -3,7 +3,7 @@
 
 # Copy httpd conf files:
 mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf_orig && \
-cp srv2_1.4.0_httpd.conf /etc/httpd/conf/httpd.conf && \
+cp -iv srv2_1.4.0_httpd.conf /etc/httpd/conf/httpd.conf && \
 
 cp srv2_1.4.1_vh3.conf /etc/httpd/conf.d/vh3.conf && \
 cp index-vh3.html /var/www/html/index.html && \
