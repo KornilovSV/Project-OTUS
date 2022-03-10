@@ -36,6 +36,8 @@ clear && echo "Autostart node_exporter:"
 systemctl is-enabled node_exporter.service
 echo " "
 ss -tln
+echo " "
+ip a | grep enp
 
 # Удаляем установочный пакет
 # cd ~/prometheus
