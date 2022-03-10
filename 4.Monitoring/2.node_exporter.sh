@@ -38,7 +38,8 @@ echo " "
 ss -tln
 
 # Удаляем установочный пакет
-cd ~/prometheus
+# cd ~/prometheus
+rm -Rf node_exporter-1.3.1.linux-amd64 && \
 rm $pkg
 
 #END

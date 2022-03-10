@@ -17,6 +17,7 @@ curl http://localhost:3000 | head
 clear && echo "Autostart grafana-server:"
 systemctl is-enabled grafana-server
 echo " "
+
 ss -tln
 
 #END
