@@ -1,0 +1,12 @@
+IN PROGRESS
+
+### МОНИТОРИНГ ###
+
+Prometheus + grafana / node_exporter
+
+https://github.com/prometheus/prometheus/releases/
+https://github.com/prometheus/node_exporter/releases/
+https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1/
+
+1. Установка Prometheus
+

@@ -1,5 +1,5 @@
 # Project-OTUS
-# 09.03.2022 v.5
+# 10.03.2022 v.6
 
 Protection of project work
 
@@ -11,7 +11,7 @@ Infrastructure:
         httpd :8082
         mysql source
 
- 2. cos-7-srv2 -- 192.168.88.102
+ 2. pve-cos-7-srv2 -- 10.10.10.nn
         httpd :8083
         mysql replica
 
@@ -23,9 +23,10 @@ Infrastructure:
 Network schem
                      192.168.88.0/24                   10.10.10.0/24
 Inet -- [Mikrotik] ------------------- [Cisco 861-K9] ---------------
-                    |          :                             |
-                    |          :                             |          
-            vm: cos7-srv1      :                          PVE 7.x
-                           cos7-srv2                    -----------
-                                                       vm: cos7-srv3
+                          |                                  |
+                          |                                  |          
+                   vbox: cos7-srv1                         PVE 7.x
+                                                       --------------
+                                                       vms: cos7-srv2
+                                                            cos7-srv3
 
