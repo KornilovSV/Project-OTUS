@@ -33,6 +33,10 @@ cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.yml /etc/prometheus/prometheus
 
 # Запускаем prometheus:
 systemctl daemon-reload && sleep 5 && \
+clear && echo "Checking the syntax: "
+promtool check config /etc/prometheus/prometheus.yml
+echo " " && sleep && \
+
 systemctl start prometheus.service && \
 clear && systemctl status prometheus.service && \
 sleep 5
