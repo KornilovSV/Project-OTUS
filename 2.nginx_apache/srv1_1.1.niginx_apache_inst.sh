@@ -14,7 +14,7 @@ systemctl stop nginx && \
 
 systemctl start httpd && \
 clear && ss -tlnp | grep "httpd" && sleep 7 && \
-clear && curl localhost:8081 | head && sleep 5 && \
+clear && curl localhost | head && sleep 5 && \
 systemctl disable --now httpd && clear && \
 
 echo "Autostart Nginx, Apache:"
