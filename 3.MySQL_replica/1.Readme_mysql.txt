@@ -1,0 +1,9 @@
+IN PROGRESS
+
+1. Устанавливаем mysql на все необходимые сервера:
+    srv0_1.1.MySQL_inst.sh
+    
+2. Запускаем скрипты настройки серверов:
+    srv1_1.2.MySQL_source.sh
+    srv2_1.2.MySQL_replica.sh
+

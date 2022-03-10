@@ -2,7 +2,7 @@
 # Installing MySQL on Linux Using the MySQL Yum Repository
 # Developed by KornilovSV
 
-cp .my.cnf ~/z.my.cnf && chmod 0600 ~/z.my.cnf && \
+cp 1.my.cnf ~/z.my.cnf && chmod 0600 ~/z.my.cnf && \
 mkdir ~/MySQL && cd ~/MySQL && \
 
 # Adding the MySQL Yum Repository For an EL7-based system:
