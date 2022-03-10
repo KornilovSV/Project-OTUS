@@ -21,7 +21,7 @@ cp -iv ~/Git/Project-OTUS/4.Monitoring/node_exporter.service \
 /etc/systemd/system/node_exporter.service && \
 
 # Стартуем node_exporter:
-systemctl daemon-reload && sleep 5 && \
+systemctl daemon-reload && \
 systemctl start node_exporter.service && sleep 5 && \
 systemctl status node_exporter.service && \
 sleep 5
