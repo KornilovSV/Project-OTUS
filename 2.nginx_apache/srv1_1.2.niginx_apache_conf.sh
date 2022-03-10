@@ -3,8 +3,8 @@
 
 # Copy niginx conf files:
 mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf_orig && \
-cp srv1_1.2_nginx.conf /etc/nginx/nginx.conf && \
-cp srv1_1.3_nginx_backend.conf /etc/nginx/conf.d/backend.conf && \
+cp -iv srv1_1.2_nginx.conf /etc/nginx/nginx.conf && \
+cp -v srv1_1.3_nginx_backend.conf /etc/nginx/conf.d/backend.conf && \
 
 # Copy httpd conf files:
 mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf_orig && \
