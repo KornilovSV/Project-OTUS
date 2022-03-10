@@ -15,7 +15,7 @@ Infrastructure:
         httpd :8083
         mysql replica
 
- 3. pve-cos-7-srv3 -- 10.10.10.100 ; On Proxmox 7.x host
+ 3. pve-cos-7-srv3 -- 10.10.10.100
         monitoring -- prometheus + grafana
         logging	   -- ELK stack
 
