@@ -4,21 +4,32 @@ IN PROGRESS
 
 ### МОНИТОРИНГ ###
 
-Prometheus + grafana / node_exporter
+ Prometheus + grafana / node_exporter
 
 -------------------------------------
 Проверка версии:
 
-Заходим на сайт (в браузере):
-https://github.com/prometheus/prometheus/releases/
-https://github.com/prometheus/node_exporter/releases/
-https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1/
+Заходим на сайты (в браузере):
+ https://github.com/prometheus/prometheus/releases/
+ https://github.com/prometheus/node_exporter/releases/
+ https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1/
 
 Находим последнюю версию, записываем на листочек:
-Prometheus ver: 2.33.5
-node_exporter ver: 1.3.1
-grafana ver: 8.4.3-1
+ Prometheus ver: 2.33.5
+ node_exporter ver: 1.3.1
+ grafana ver: 8.4.3-1
 
 -------------------------------------
-1. Установка Prometheus
+1. Установка Prometheus, запускаем скрипт:
+    1.prometheus.sh
+
+При правильной установке на терминале выводится (ss -tln) порт 9090.
+
+При необходимости, изменяем IP-адрес хостов или добавлем новые хосты в файле
+    /etc/prometheus/prometheus.yml
+    
+Установка Prometheus закончена.
+
+-------------------------------------
+2. Установка 
 

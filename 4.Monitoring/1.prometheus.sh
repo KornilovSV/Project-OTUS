@@ -43,14 +43,15 @@ clear && echo "Autostart prometheus:"
 systemctl is-enabled prometheus.service
 echo " "
 ss -tln
-sleep 5
-
-# Удаляем установочный пакет
-cd ~/prometheus
-rm -fv $pkg
-
+echo " "
 echo "If necessary, change the IP address or add monitoring hosts"
 echo "nano /etc/prometheus/prometheus.yml"
 cat /etc/prometheus/prometheus.yml | grep -A7 node_exporter
+# sleep 5
+
+# Удаляем установочный пакет
+cd ~/prometheus
+rm -f $pkg
 
 # END
+
