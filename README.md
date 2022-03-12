@@ -29,5 +29,5 @@ Inet -- [Mikrotik] ------------------- [Cisco 861-K9] ---------------
                    vbox: cos7-srv1                         PVE 7.x
                                                        --------------
                                                        vms: cos7-srv2
-                                                            cos7-srv3
+                                                            cos7-srv4
 
