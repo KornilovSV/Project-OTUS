@@ -12,10 +12,10 @@ clear && echo "Config files check:" && \
 apachectl -t && sleep 5 && echo "Reload httpd" && \
 systemctl reload httpd && \
 clear  && sleep 10 && ss -tln && \
-echo ""
+echo " "
 echo -n "Inet ExtIP: " && wget -qO- eth0.me && \
-echo ""
+echo " "
 echo -n "Host IP: "
-ip -c a | grep enp
+ip -c a | grep inet
 sleep 5
 
