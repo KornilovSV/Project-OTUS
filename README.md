@@ -1,17 +1,17 @@
 # Project-OTUS
-# 10.03.2022 v.6
+# 12.03.2022 v.7
 
 Protection of project work
 
 Infrastructure:
 
- 1. cos-7-srv1 -- 192.168.88.101
+ 1. cos-7-srv1 -- 10.10.10.100
         nginx :80	-- балансировщик нагрузки
         httpd :8081
         httpd :8082
         mysql source
 
- 2. pve-cos-7-srv2 -- 10.10.10.100
+ 2. cos-7-srv2 -- 192.168.88.102
         httpd :8083
         mysql replica
 
@@ -26,8 +26,8 @@ Diagram of my home network:
 Inet -- [Mikrotik] ------------------- [Cisco 861-K9] ---------------
                           |                                  |
                           |                                  |          
-                   vbox: cos7-srv1                         PVE 7.x
+                   vbox: cos7-srv2                         PVE 7.x
                                                        --------------
-                                                       vms: cos7-srv2
+                                                       vms: cos7-srv1
                                                             cos7-srv4
 
