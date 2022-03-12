@@ -1,8 +1,6 @@
 Часть 2.
 
 --- Check Replica ------------
-Master:
-# mysql -e "show master status;"
 Slave:
 # mysql -e "START SLAVE;"
 mysql -e "show slave status\G"
@@ -10,6 +8,7 @@ mysql -e "show slave status\G"
 --- Greate DataBase: ---------
 Master:
 mysql > 
+show databases;
 create database staff;
 use staff;
 create table ksv_tbl (id int);

@@ -5,7 +5,7 @@ https://dev.mysql.com/doc/refman/8.0/en/linux-installation-yum-repo.html
 
 1. MySQL Yum Repository:
     Проверяем наличие последней версии репозитория
-    https://dev.mysql.com/downloads/repo/yum/3
+    https://dev.mysql.com/downloads/
     https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
 
  Находим последнюю версию "el" MySQL 8, записываем её на клочёк бумаги,
