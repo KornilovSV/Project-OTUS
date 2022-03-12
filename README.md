@@ -11,11 +11,11 @@ Infrastructure:
         httpd :8082
         mysql source
 
- 2. pve-cos-7-srv2 -- 10.10.10.nn
+ 2. pve-cos-7-srv2 -- 10.10.10.100
         httpd :8083
         mysql replica
 
- 3. pve-cos-7-srv3 -- 10.10.10.100
+ 3. pve-cos-7-srv4 -- 10.10.10.104
         monitoring -- prometheus + grafana
         logging	   -- ELK stack
 
