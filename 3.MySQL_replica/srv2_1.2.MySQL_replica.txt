@@ -4,9 +4,8 @@
 Master:
 # mysql -e "show master status;"
 Slave:
-quit
-;mysql > show slave status\G
-;mysql -e "START SLAVE;"
+# mysql -e "START SLAVE;"
+mysql -e "show slave status\G"
 
 --- Greate DataBase: ---------
 Master:
