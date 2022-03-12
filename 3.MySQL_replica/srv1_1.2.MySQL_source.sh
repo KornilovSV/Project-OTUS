@@ -14,5 +14,5 @@ mysql -e "SELECT User, Host FROM mysql.user;" && sleep 1 && \
 # Master status
 mysql -e "SHOW MASTER STATUS;" && \
 mysql -e "select @@server_id;" && \
-ip a | grep enp
+ip a | grep -A2 2:
 

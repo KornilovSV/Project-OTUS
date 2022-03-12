@@ -25,7 +25,7 @@ Otu$-2021
 
 На Slave:
 !!! Не выходя из командной строки MySQL
-Меняем IP-адрес Мастера, номер бинлога и позиции:
+Меняем IP-адрес Мастера, номер бинлога и позиции командой:
 
 mysql>
 CHANGE MASTER TO MASTER_HOST='192.168.88.101', MASTER_USER='repl', MASTER_PASSWORD='oTUSlave#2020', MAS
