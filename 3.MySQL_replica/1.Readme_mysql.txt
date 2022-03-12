@@ -22,9 +22,16 @@ Otu$-2021
 3. Запускаем скрипты настройки для серверов:
     srv1_1.2.MySQL_source.sh   на srv1
     srv2_1.2.MySQL_replica.sh  на srv2 ; следуем указаниям скрипта.
-    
-  Выходим из mysql по quit
-Сверяем статус слейва и мастера.
+
+На Slave:
+!!! Не выходя из командной строки MySQL
+Меняем IP-адрес Мастера, номер бинлога и позиции:
+
+mysql>
+CHANGE MASTER TO MASTER_HOST='192.168.88.101', MASTER_USER='repl', MASTER_PASSWORD='oTUSlave#2020', MAS
+TER_LOG_FILE='binlog.000nnn', MASTER_LOG_POS=nnn, GET_MASTER_PUBLIC_KEY = 1;
 
 Настройка закончена.
+Далее см. файл srv2_1.2.MySQL_replica.txt
+
 

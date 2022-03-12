@@ -5,8 +5,8 @@
 ######################################################
 
 # Copy Backup-scripts
-cp mysql-backup.sh ~/MySQL && \
-cp mysql-backup-tbl.sh ~/MySQL && \
+cp -iv mysql-backup.sh ~/MySQL && \
+cp -iv mysql-backup-tbl.sh ~/MySQL && \
 
 # Change server_id on Slave:
 echo "server_id = 2" >> /etc/my.cnf && systemctl restart mysqld && \
