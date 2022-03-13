@@ -24,4 +24,3 @@ systemctl enable --now kibana && clear && systemctl status kibana && sleep 5 && 
 #; sudo firewall-cmd --reload
 #; systemctl stop firewalld
 
-#END
