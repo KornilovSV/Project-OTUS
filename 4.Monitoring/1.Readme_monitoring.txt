@@ -25,8 +25,14 @@ IN PROGRESS
 
 При правильной установке на терминале выводится (ss -tln) порт 9090.
 
-При необходимости, изменяем IP-адрес хостов или добавлем новые хосты в файле
+При необходимости, изменяем IP-адрес хостов мониторинга или добавлем новые хосты
+в файле:
     /etc/prometheus/prometheus.yml
+    в этом случае, проверяем конфигурацию: 
+    promtool check config /etc/prometheus/prometheus.yml
+    и перезапускаем:
+    systemctl reload prometheus.service
+    systemctl status prometheus.service
     
 Установка Prometheus закончена.
 

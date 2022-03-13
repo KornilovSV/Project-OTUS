@@ -37,7 +37,7 @@ systemctl is-enabled node_exporter.service
 echo " "
 ss -tln
 echo " "
-ip a | grep enp
+ip a | grep 2: -A2
 
 # Удаляем установочный пакет
 # cd ~/prometheus
