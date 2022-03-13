@@ -54,7 +54,7 @@ echo " "
 ss -tln
 echo " "
 echo "If necessary, change the IP address or add monitoring hosts in: "
-echo "nano /etc/prometheus/prometheus.yml"
+echo "/etc/prometheus/prometheus.yml"
 cat /etc/prometheus/prometheus.yml | grep -A7 node_exporter
 # sleep 5
 
