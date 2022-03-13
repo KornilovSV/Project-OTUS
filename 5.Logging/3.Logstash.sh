@@ -19,10 +19,9 @@ cp -iv logstash.yml /etc/logstash/logstash.yml
 
 cp -iv logstash-nginx-es.conf /etc/logstash/conf.d/logstash-nginx-es.conf && \
 
-systemctl restart logstash.service && \
+systemctl enable --now logstash.service && \
 clear &&  systemctl is-enabled logstash.service && \
-ss -tln && sleep 7
-
+systemctl status logstash.service && ss -tln && sleep 7
 
 #---------------------------------
 # Filebeat config
