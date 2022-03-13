@@ -3,8 +3,6 @@
 # ELK setup
 #############################################################
 
-### mkdir ~/ELK && cd ~/ELK
-
 # Устанавливаем JRE
 yum -y install java-openjdk-devel java-openjdk && \
 
@@ -97,89 +95,33 @@ cp -iv logstash.yml /etc/logstash/logstash.yml
 # path.config: /etc/logstash/conf.d
 # path.logs: /var/log/logstash
 
-grep ^path. /etc/logstash/logstash.yml
+# grep ^path. /etc/logstash/logstash.yml
 
----------------------------------
-cat > /etc/logstash/conf.d/logstash-nginx-es.conf
+#---------------------------------
+cp -iv logstash-nginx-es.conf /etc/logstash/conf.d/logstash-nginx-es.conf && \
+systemctl restart logstash.service
 
-input {
-    beats {
-        port => 5400
-    }
-}
-
-filter {
- grok {
-   match => [ "message" , "%{COMBINEDAPACHELOG}+%{GREEDYDATA:extra_fields}"]
-   overwrite => [ "message" ]
- }
- mutate {
-   convert => ["response", "integer"]
-   convert => ["bytes", "integer"]
-   convert => ["responsetime", "float"]
- }
- geoip {
-   source => "clientip"
-   add_tag => [ "nginx-geoip" ]
- }
- date {
-   match => [ "timestamp" , "dd/MMM/YYYY:HH:mm:ss Z" ]
-   remove_field => [ "timestamp" ]
- }
- useragent {
-   source => "agent"
- }
-}
-
-output {
- elasticsearch {
-   hosts => ["localhost:9200"]
-   index => "weblogs-%{+YYYY.MM.dd}"
-   document_type => "nginx_logs"
- }
- stdout { codec => rubydebug }
-}
-
-##############################
-
-sudo systemctl restart logstash.service
-
----------------------------------
+#---------------------------------
 # Filebeat config
 
-sudo nano /etc/filebeat/filebeat.yml
+mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.back && \
+cp -iv filebeat.yml /etc/filebeat/filebeat.yml
+chmod 600 /etc/filebeat/filebeat.yml
 
-=== Filebeat inputs ===
-# Добавить в конец блока
-> filebeat.inputs:
-- type: log
-  paths:
-    - /var/log/nginx/*.log
-  exclude_files: ['\.gz$']
+systemctl enable --now filebeat && systemctl restart filebeat && \
+clear && systemctl status filebeat && sleep 5
 
---- Elasticsearch Output ---
-# Закомментировать 
-#output.elasticsearch:
-  # hosts: ["localhost:9200"]
+====================================================
 
---- Logstash Output ---
-# Раскоментировать и изменить порт на 5400
-output.logstash:
-  hosts: ["localhost:5400"]
-
-
-systemctl enable --now filebeat 
-&& systemctl restart filebeat
-
----------------------------------
 # systemctl start nginx
 
 # Ходим по 80 порту, собираем логи nginx
-http://192.168.88.101/
+http://10.10.10.100/
 
 # Заходим на панель Kibana
-http://192.168.88.101:5601/app/home#/
+http://10.10.10.100:5601/app/home#/
 
+---------------------------------
 Делаем настройку статистики
 Analytics -- Discover -- Create Index pattern
 Name: weblogs*, Timestamp field: @timestamp --> Create Index pattern
