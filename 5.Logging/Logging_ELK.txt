@@ -1,28 +1,35 @@
-IN PROGRESS
+# IN PROGRESS
 #############################################################
-ELK setup
+# ELK setup
 #############################################################
 
-sudo yum -y install java-openjdk-devel java-openjdk
+### mkdir ~/ELK && cd ~/ELK
 
+# Устанавливаем JRE
+sudo yum -y install java-openjdk-devel java-openjdk && \
 
-cat <<EOF | sudo tee /etc/yum.repos.d/elasticsearch.repo
-[elasticsearch-7.x]
-name=Elasticsearch repository for 7.x packages
-baseurl=https://artifacts.elastic.co/packages/7.x/yum
-gpgcheck=1
-gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
-enabled=1
-autorefresh=1
-type=rpm-md
-EOF
+# Создаем репозиторий elasticsearch:
+cp -iv elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo
 
-sudo rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+---
+# cat <<EOF | sudo tee /etc/yum.repos.d/elasticsearch.repo
+# [elasticsearch-7.x]
+# name=Elasticsearch repository for 7.x packages
+# baseurl=https://artifacts.elastic.co/packages/7.x/yum
+# gpgcheck=1
+# gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+# enabled=1
+# autorefresh=1
+# type=rpm-md
+# EOF
+# ---
 
+# Импортируем ключ elasticsearch:
+sudo rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch && \
 
-sudo yum clean all && sudo yum makecache && sudo yum -y install elasticsearch
-
-rpm -qi elasticsearch 
+# Устанавливаем elasticsearch:
+sudo yum clean all && sudo yum makecache && sudo yum -y install elasticsearch && \
+clear && rpm -qi elasticsearch && sleep 5 && \ 
 
 #; URL         : https://www.elastic.co/
 #; Reference documentation can be found at
@@ -30,17 +37,11 @@ rpm -qi elasticsearch
 #;  and the 'Elasticsearch: The Definitive Guide' book can be found at
 #;  https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html
 
+# Устанавливаем лимиты памяти для виртуальной машины Java = 1GB
+cp -iv /etc/elasticsearch/jvm.options.d/jvm.options \
+/etc/elasticsearch/jvm.options.d/jvm.options.back
+cat jvm.option >> /etc/elasticsearch/jvm.options.d/jvm.options
 
-# yum install -y nano
-
-
-# Устанавливаем лимиты памяти для виртуальной машины Java
-cat > /etc/elasticsearch/jvm.options.d/jvm.options
-
--Xms1g
--Xmx1g
-
-CTRL+D
 
 ####
 
