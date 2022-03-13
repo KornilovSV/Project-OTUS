@@ -17,5 +17,5 @@ chmod 660 /etc/kibana/kibana.yml && chgrp kibana /etc/kibana/kibana.yml && \
 # ---
 
 # Запускаем kibana:
-systemctl enable --now kibana && clear && systemctl status kibana && sleep 5 && \
+systemctl enable --now kibana && clear && systemctl status kibana
 
