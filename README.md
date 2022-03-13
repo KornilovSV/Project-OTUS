@@ -6,18 +6,18 @@ Protection of project work
 Infrastructure:
 
  1. pve-cos-7-srv1 -- 10.10.10.100
-        nginx :80	-- балансировщик нагрузки
+        nginx :80
         httpd :8081
         httpd :8082
+        ELK steck
+
+ 2. pve-cos-7-srv4 -- 10.10.10.104
+        httpd :8083
         mysql source
 
- 2. cos-7-srv2 -- 192.168.88.102
-        httpd :8083
+ 3. cos-7-srv2 -- 192.168.88.102
         mysql replica
-
- 3. pve-cos-7-srv4 -- 10.10.10.104
         monitoring -- prometheus + grafana
-        logging	   -- ELK stack
 
 --------------------------------------------
 Diagram of my home network: 
