@@ -122,20 +122,29 @@ http://10.10.10.100/
 http://10.10.10.100:5601/app/home#/
 
 ---------------------------------
-Делаем настройку статистики
-Analytics -- Discover -- Create Index pattern
-Name: weblogs*, Timestamp field: @timestamp --> Create Index pattern
+Делаем настройку статистики:
 
+1. Analytics -- Discover -- Create Index pattern
+    # Вписываем в поле "Name":
+        weblogs*, 
+    # В поле "Timestamp field":  @timestamp
+    # Жмём --> Create Index pattern
 
-# Kibana - Index Patterns - Create Index pattern
-# Name weblogs*, Timestamp field - @timestamp
+2. Жмём == Analytics - Discover
 
-Analytics - Discover - weblogs* (слева вверху)
+3.1 (Дашбоард)
+     Analytics -> Dashboard -> Create -> Greate Visualization
 
-(Дашбоард)
- Analytics - Dashboard - Create
+    Выбираем:
+      Bar horizontal
+      
+    В поиске набираем: request.keyword  и тащим в правое окно
+     Так же с: host.ip.keyword
 
-# Bar horizontal - request.keyword host.ip.keyword
-# Donut - slice by response, size by #records
-
-
+3.2 (Дашбоард)
+        Donut 
+        1. Slice by: response
+        2. Size by:  records
+ 
+ -------------------------------
+ 
