@@ -2,7 +2,7 @@
 # ELK setup Beats
 #############################################################
 
-yum -y filebeat auditbeat metricbeat packetbeat heartbeat-elastic
+yum -y install filebeat auditbeat metricbeat packetbeat heartbeat-elastic
 
 # Filebeat config
 mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.back && \

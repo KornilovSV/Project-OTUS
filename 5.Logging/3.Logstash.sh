@@ -3,7 +3,7 @@
 #############################################################
 
 yum -y install logstash && \
-# yum -y filebeat auditbeat metricbeat packetbeat heartbeat-elastic
+# yum -y install filebeat auditbeat metricbeat packetbeat heartbeat-elastic
 
 # logstash config
 mv /etc/logstash/logstash.yml /etc/logstash/logstash.yml.back && \
