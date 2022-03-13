@@ -11,7 +11,7 @@ chmod 600 /etc/filebeat/filebeat.yml
 
 # Start Filebeat
 systemctl enable --now filebeat && sleep 5 && \
-systemctl restart filebeat && \
+# systemctl restart filebeat && \
 clear && systemctl status filebeat && sleep 5
 
 #END
