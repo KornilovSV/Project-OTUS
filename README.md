@@ -5,7 +5,7 @@ Protection of project work
 
 Infrastructure:
 
- 1. cos-7-srv1 -- 10.10.10.100
+ 1. pve-cos-7-srv1 -- 10.10.10.100
         nginx :80	-- балансировщик нагрузки
         httpd :8081
         httpd :8082

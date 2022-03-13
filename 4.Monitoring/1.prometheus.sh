@@ -28,16 +28,17 @@ chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus/ /var/lib
 ## -------------------------
 # Создаем юнит в systemd
 cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.service /etc/systemd/system/prometheus.service && \
+systemctl daemon-reload && \
 
 # Копируем настройки prometheus.yum
 mv -fv /etc/prometheus/prometheus.yml /etc/prometheus/prometheus.yml.back && \
 cp -iv ~/Git/Project-OTUS/4.Monitoring/prometheus.yml /etc/prometheus/prometheus.yml && \
-systemctl daemon-reload && sleep 5 && \
+sleep 5 && \
 
 # Проверяем конфигурацию prometheus
 clear && echo "Checking the syntax: "
 promtool check config /etc/prometheus/prometheus.yml
-echo " " && sleep && \
+echo " " && sleep 5 && \
 
 # Запускаем prometheus:
 systemctl start prometheus.service && \

@@ -48,10 +48,11 @@ sleep 5
 systemctl enable prometheus.service && \
 clear && echo "Autostart prometheus:"
 systemctl is-enabled prometheus.service
+
 echo " "
 ss -tln
 echo " "
-echo "If necessary, change the IP address or add monitoring hosts"
+echo "If necessary, change the IP address or add monitoring hosts in: "
 echo "nano /etc/prometheus/prometheus.yml"
 cat /etc/prometheus/prometheus.yml | grep -A7 node_exporter
 # sleep 5
