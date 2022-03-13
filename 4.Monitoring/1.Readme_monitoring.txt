@@ -1,76 +1,73 @@
-IN PROGRESS
-
-Скрипты готовы делаю описание
-
-### МОНИТОРИНГ ###
+### Monitoring ###
 
  Prometheus + grafana / node_exporter
 
 -------------------------------------
-Проверка версии:
+Checking versions:
 
-Заходим на сайты (в браузере):
+We go to the sites (in the browser):
  https://github.com/prometheus/prometheus/releases/
  https://github.com/prometheus/node_exporter/releases/
  https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1/
 
-Находим последнюю версию, записываем на клочёк бумаги:
+Check the latest version, write down the papers:
  Prometheus ver: 2.33.5
  node_exporter ver: 1.3.1
  grafana ver: 8.4.3-1
 
 -------------------------------------
-1. Установка Prometheus, запускаем скрипт:
+1. Installing Prometheus, run the script:
     1.prometheus.sh
 
-При правильной установке на терминале выводится (ss -tln) порт 9090.
+If installed correctly, the port 9090 is displayed on the terminal (ss -tln).
 
-При необходимости, изменяем IP-адрес хостов мониторинга или добавлем новые хосты
-в файле:
+If necessary, change the IP address of the monitoring host or add new hosts
+in the file:
     /etc/prometheus/prometheus.yml
-    в этом случае, проверяем конфигурацию: 
+    in this case, check the configuration: 
     promtool check config /etc/prometheus/prometheus.yml
-    и перезапускаем:
+    and restart:
     systemctl reload prometheus.service
     systemctl status prometheus.service
     
-Установка Prometheus закончена.
+Prometheus installation is finished.
 
 -------------------------------------
-2. Установка node_exporter на все необходимые хосты:
+2. Installing node_exporter on all required hosts:
 
-запускаем скрипт:
+run the script:
     2.node_exporter.sh
 
-При правильной установке на терминале выводится (ss -tln) порт 9100.
+If installed correctly, the port 9100 is displayed on the terminal (ss -tln).
 
-Установка node_exporter закончена.
+node_exporter installation is finished.
 
 -------------------------------------
-3. Установка Grafana
+3. Installing Grafana
 
-запускаем скрипт:
+
+run the script:
     3.grafana.sh
 
-При правильной установке на терминале выводится (ss -tln) порт 3000.
+If installed correctly, the port 3000 is displayed on the terminal (ss -tln).
 
-Установка grafana-server закончена.
+grafana-server installation is finished.
 
 -------------------------------------
-4. Настройка grafana
+4. Setting up grafana
 
-# Заходим на Grafana:
+# We go to the Grafana web page:
 http://IP-address_grafana-server:3000/login
-http://192.168.XXX.XXX:3000/login
+http://192.168.nnn.nnn:3000/login
 
 Default Login/Pwd: admin
 new password: Grafana
 
-Настраиваем Grafana на использование Prometheus:
+Setting up Grafana to use Prometheus:
 * Configuration > Data Sources > Add data source > Prometheus
 HTTP URL: http://localhost:9090
 
-Загружаем Dashboard:
+Loading Dashboard:
 https://grafana.com/grafana/dashboards
 Node Exporter Fullb: 1860
 
@@ -79,7 +76,7 @@ Import via grafana.com:
 https://grafana.com/grafana/dashboards/1860
 https://grafana.com/grafana/dashboards/11074
 
-# Или создаем свой (нужно знать синтаксис):
+# Or create your own dashboard (you need to know the syntax):
 # + > Greate > dashboard
 
 #END
