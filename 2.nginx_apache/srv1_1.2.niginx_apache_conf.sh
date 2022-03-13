@@ -21,5 +21,9 @@ nginx -t && sleep 5 && \
 
 systemctl enable --now httpd && \
 systemctl start nginx && \
-sleep 10 && clear && ss -tln && sleep 5
+sleep 10 && clear && ss -tln && \
+echo " "
+cat /etc/nginx/conf.d/backend.conf | head && \
+sleep 5
 
+#END
