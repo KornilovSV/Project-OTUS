@@ -60,7 +60,7 @@ http://IP-address_grafana-server:3000/login
 http://192.168.nnn.nnn:3000/login
 
 Default Login/Pwd: admin
-new password: Grafana
+new password: Grafan@
 
 Setting up Grafana to use Prometheus:
 * Configuration > Data Sources > Add data source > Prometheus
