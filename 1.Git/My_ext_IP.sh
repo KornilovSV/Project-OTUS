@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # "Find out the external IP address in Linux" script from KSV
+# curl https://ipinfo.io/$(wget -qO- eth0.me)
 
 MYIP1=$(wget -qO- eth0.me);
 MYIP2=$(wget -qO- icanhazip.com);

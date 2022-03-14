@@ -27,8 +27,7 @@ in the file:
     in this case, check the configuration: 
     promtool check config /etc/prometheus/prometheus.yml
     and restart:
-    systemctl reload prometheus.service
-    systemctl status prometheus.service
+    systemctl reload prometheus.service && systemctl status prometheus.service
     
 Prometheus installation is finished.
 
