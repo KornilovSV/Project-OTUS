@@ -11,11 +11,11 @@ Infrastructure:
         httpd :8082
         ELK steck
 
- 2. pve-cos-7-srv4 -- 10.10.10.104
+ 2. pve-cos-7-srv2 -- 10.10.10.104
         httpd :8083
         mysql source
 
- 3. cos-7-srv2 -- 192.168.88.102
+ 3. cos-7-srv3 -- 192.168.88.102
         mysql replica
         monitoring -- prometheus + grafana
 
@@ -26,8 +26,8 @@ Diagram of my home network:
 Inet -- [Mikrotik] ------------------- [Cisco 861-K9] ---------------
                           |                                  |
                           |                                  |          
-                   vbox: cos7-srv2                         PVE 7.x
+                   vbox: cos7-srv3                         PVE 7.x
                                                        --------------
                                                        vms: cos7-srv1
-                                                            cos7-srv4
+                                                            cos7-srv2
 
