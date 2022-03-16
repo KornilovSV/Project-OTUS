@@ -14,10 +14,10 @@ Infrastructure:
  2. pve-cos-7-srv2 -- 10.10.10.104
         httpd :8083
         mysql source
-
- 3. cos-7-srv3 -- 192.168.88.102
-        mysql replica
         monitoring -- prometheus + grafana
+
+ 3. cos-7-srv3 -- 192.168.88.103
+        mysql replica
 
 --------------------------------------------
 Diagram of my home network: 
