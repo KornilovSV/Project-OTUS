@@ -13,7 +13,7 @@ http://10.10.10.100:5601/app/home#/
 
 1. Analytics -- Discover -- Create Index pattern
     # Вписываем в поле "Name":
-        weblogs*, 
+        weblogs*
     # В поле "Timestamp field":  @timestamp
     # Жмём --> Create Index pattern
 
