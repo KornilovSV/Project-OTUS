@@ -3,7 +3,7 @@
 # Developed by KornilovSV
 
 cd ~/prometheus
-echo -n "Enter current version of Grafana: "
+echo -n "Enter current version of Grafana (example 8.4.4-1): "
 read ver
 
 curl -LO https://dl.grafana.com/oss/release/grafana-$ver.x86_64.rpm && \

@@ -2,7 +2,7 @@
 ### Install node_exporter ###
 # Developed by KornilovSV
 
-echo -n "Enter current version of Node_exporter: "
+echo -n "Enter current version of Node_exporter (example 1.3.1): "
 read ver
 
 cd ~/prometheus

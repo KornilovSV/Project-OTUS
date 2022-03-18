@@ -2,7 +2,7 @@
 ### Install Prometheus ###
 # Developed by KornilovSV
 
-echo -n "Enter current version of Prometheus: "
+echo -n "Enter current version of Prometheus (example 2.34.0): "
 read ver
 
 mkdir ~/prometheus && cd ~/prometheus && \
