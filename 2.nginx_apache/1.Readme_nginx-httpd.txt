@@ -20,6 +20,7 @@
 }
 
 4. Выполням:
+    nginx -t
     systemctl reload nginx
 
 Настройка закончена.
